@@ -1,0 +1,26 @@
+from typing import Dict
+
+import openpyxl
+
+book = openpyxl.load_workbook("C:\\Users\\USER\\Downloads\\Calcu.xlsx")
+sheet = book.active
+Dict = {}
+output = sheet.cell(row=1, column=1).value
+print(output)
+
+output2 = sheet.cell(row=2, column=2).value = "Rahul"
+print(output2)
+
+
+print(sheet.max_row)
+print(sheet.max_column)
+
+print(sheet["D3"].value)
+
+for i in range(1, sheet.max_row + 1):
+    if sheet.cell(row=i, column=1).value == "Testcase1":
+
+        for j in range(2, sheet.max_column + 1):
+           Dict[sheet.cell(row=1, column=j).value] = sheet.cell(row=i, column=j).value
+
+print(Dict)
